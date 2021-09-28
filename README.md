@@ -10,8 +10,9 @@ It creates:
 ## Pre-requisites
 
 **IMPORTANT NOTE**
+
     1.  Required version of Terraform is mentioned in [meta.tf](meta.tf).
-    
+
     2.  Go through [var.tf](var.tf) for understanding each terraform variable before running this component.
 
 
