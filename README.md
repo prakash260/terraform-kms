@@ -18,54 +18,56 @@ It creates:
 **How to use this component**
 
 ### example using service key type
-    ```
-        module kms_create {
+   module "logs_kms" {
 
-        source      = git@gitlab.com:https://github.com/prakash260/terraform-kms?ref=v1.0;
+  source      = "git@gitlab.com:bhp-cloudfactory/aws-components/terraform-aws-kms-key.git?ref=5.0.1"
 
-        key_type    = service
+  key_type    = "service"
 
-        description = Used to encrypt log aggregation resources
+  description = "Used to encrypt log aggregation resources"
 
-        alias_name  = local.kms_alias_name
+  alias_name  = local.kms_alias_name
 
-        custom_tags = var.custom_tags
+  custom_tags = var.custom_tags
 
-        service_key_info = {
+  service_key_info = {
 
-            aws_service_names  = [format(ec2.%[s.amazonaws.com
-                    ](http: //s.amazonaws.com/), [data.aws_region.current.name](http://data.aws_region.current.name/))]
+    "aws_service_names"  = [format("ec2.%s.amazonaws.com", data.aws_region.current.name)]
 
-            caller_account_ids = [data.aws_caller_identity.current.account_id
-                    ]
-                }
-            }
-    ```
+    "caller_account_ids" = [data.aws_caller_identity.current.account_id]
+
+  }
+
+
+}
+
+
 ### example using direct key type
-    ```
-        module sns_key {
+    module "sns_key" {
 
-        source = git@gitlab.com:bhp-cloudfactory/aws-components/terraform-aws-kms-key.git?ref=5.0.1
+  source = "git@gitlab.com:bhp-cloudfactory/aws-components/terraform-aws-kms-key.git?ref=5.0.1"
 
-        alias_name           = app-alarm-sns-key
 
-        append_random_suffix = true
+  alias_name           = "app-alarm-sns-key"
 
-        key_type             = direct
+  append_random_suffix = true
 
-        principal_type       = Service
+  key_type             = "direct"
 
-        description          = Used to encrypt sns data
+  principal_type       = "Service"
 
-        custom_tags          = var.custom_tags
+  description          = "Used to encrypt sns data"
 
-        direct_key_info = {
+  custom_tags          = var.custom_tags
 
-            allow_access_from_principals = [[sns.amazonaws.com
-                        ](http: //sns.amazonaws.com/), [cloudwatch.amazonaws.com](http://cloudwatch.amazonaws.com/)]
-                    }
-                }
-    ```
+
+  direct_key_info = {
+
+    "allow_access_from_principals" = ["sns.amazonaws.com", "cloudwatch.amazonaws.com"]
+
+  }
+
+}
 
 **Requirements**
 
