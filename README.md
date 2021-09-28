@@ -18,6 +18,7 @@ It creates:
 **How to use this component**
 
 ### example using service key type
+```   
    module "logs_kms" {
 
           source      = "git@gitlab.com:bhp-cloudfactory/aws-components/terraform-aws-kms-key.git?ref=5.0.1"
@@ -38,9 +39,10 @@ It creates:
 
             }
         }
-
+```
 
 ### example using direct key type
+```
   module "sns_key" {
 
         source = "git@gitlab.com:bhp-cloudfactory/aws-components/terraform-aws-kms-key.git?ref=5.0.1"
@@ -66,7 +68,7 @@ It creates:
           }
 
       }
-
+```
 **Requirements**
 
 | **Name** | **Version** |
