@@ -27,41 +27,41 @@ It creates:
 
         description = Used to encrypt log aggregation resources
 
-        alias\_name  = local.kms\_alias\_name
+        alias_name  = local.kms_alias_name
 
-        custom\_tags = var.custom\_tags
+        custom_tags = var.custom_tags
 
-        service\_key\_info = {
+        service_key_info = {
 
-            aws\_service\_names  = [format(ec2.%[s.amazonaws.com
-                    ](http: //s.amazonaws.com/), [data.aws\_region.current.name](http://data.aws_region.current.name/))]
+            aws_service_names  = [format(ec2.%[s.amazonaws.com
+                    ](http: //s.amazonaws.com/), [data.aws_region.current.name](http://data.aws_region.current.name/))]
 
-            caller\_account\_ids = [data.aws\_caller\_identity.current.account\_id
+            caller_account_ids = [data.aws_caller_identity.current.account_id
                     ]
                 }
             }
     ```
 ### example using direct key type
     ```
-        module sns\_key {
+        module sns_key {
 
         source = git@gitlab.com:bhp-cloudfactory/aws-components/terraform-aws-kms-key.git?ref=5.0.1
 
-        alias\_name           = app-alarm-sns-key
+        alias_name           = app-alarm-sns-key
 
-        append\_random\_suffix = true
+        append_random_suffix = true
 
-        key\_type             = direct
+        key_type             = direct
 
-        principal\_type       = Service
+        principal_type       = Service
 
         description          = Used to encrypt sns data
 
-        custom\_tags          = var.custom\_tags
+        custom_tags          = var.custom_tags
 
-        direct\_key\_info = {
+        direct_key_info = {
 
-            allow\_access\_from\_principals = [[sns.amazonaws.com
+            allow_access_from_principals = [[sns.amazonaws.com
                         ](http: //sns.amazonaws.com/), [cloudwatch.amazonaws.com](http://cloudwatch.amazonaws.com/)]
                     }
                 }
@@ -90,20 +90,20 @@ No modules.
 
 | **Name** | **Description** | **Type** | **Default** | **Required** |
 | --- | --- | --- | --- | --- |
-| [alias\_name ](https: //docs.google.com/document#bookmark=id.3dy6vkm)  | Name for the kms key alias. A random string will be appended depending on the &#39;append\_random\_suffix&#39; variable | string | n/a | yes |
+| [alias_name ](https: //docs.google.com/document#bookmark=id.3dy6vkm)  | Name for the kms key alias. A random string will be appended depending on the &#39;append_random_suffix&#39; variable | string | n/a | yes |
 | [description ](https: //docs.google.com/document#bookmark=id.1t3h5sf)  | The description to give to the key | string | n/a | yes |
-| [key\_type ](https: //docs.google.com/document#bookmark=id.4d34og8)  | Indicate which kind of key to create: &#39;service&#39; for key used by services; &#39;direct&#39; for other keys. Must provide service\_key or direct\_key maps depending on the type | string | n/a | yes |
-| [append\_random\_suffix ](https: //docs.google.com/document#bookmark=id.2s8eyo1)  | Append a random string to the alias name. Default: true (yes) | bool | true | no |
-| [charge\_code ](https: //docs.google.com/document#bookmark=id.17dp8vu)  | The code for applying charge code billing logic to the resources | string |  | no |
-| [custom\_tags ](https: //docs.google.com/document#bookmark=id.3rdcrjn)  | Custom tags which can be passed on to the AWS resources. They should be key value pairs having distinct keys | map(any) | {} | no |
-| [deletion\_window ](https: //docs.google.com/document#bookmark=id.26in1rg)  | Number of days before a key actually gets deleted once it&#39;s been scheduled for deletion. Valid value between 7 and 30 days | number | 30 | no |
-| [direct\_key\_info ](https: //docs.google.com/document#bookmark=id.lnxbz9)  | Information required for a &#39;direct&#39; key | object({ # List of principals to allow for cryptographic use of key. allow\_access\_from\_principals = list(string) }) | { allow\_access\_from\_principals: [] } | no |
-| [principal\_type ](https: //docs.google.com/document#bookmark=id.35nkun2)  | Indicate which type of principal to use in direct\_key\_info: Must be one of the valid values allowed, Eg. AWS or Service | string | AWS | no |
-| [service\_key\_info ](https: //docs.google.com/document#bookmark=id.1ksv4uv)  | Information required for a &#39;service&#39; key | object({ # List of AWS service names for the kms:ViaService policy condition aws\_service\_names = list(string) # List of caller account IDs for the kms:CallerAccount policy condition caller\_account\_ids = list(string) }) | { aws\_service\_names: [], caller\_account\_ids: [] } | no |
+| [key_type ](https: //docs.google.com/document#bookmark=id.4d34og8)  | Indicate which kind of key to create: &#39;service&#39; for key used by services; &#39;direct&#39; for other keys. Must provide service_key or direct_key maps depending on the type | string | n/a | yes |
+| [append_random_suffix ](https: //docs.google.com/document#bookmark=id.2s8eyo1)  | Append a random string to the alias name. Default: true (yes) | bool | true | no |
+| [charge_code ](https: //docs.google.com/document#bookmark=id.17dp8vu)  | The code for applying charge code billing logic to the resources | string |  | no |
+| [custom_tags ](https: //docs.google.com/document#bookmark=id.3rdcrjn)  | Custom tags which can be passed on to the AWS resources. They should be key value pairs having distinct keys | map(any) | {} | no |
+| [deletion_window ](https: //docs.google.com/document#bookmark=id.26in1rg)  | Number of days before a key actually gets deleted once it&#39;s been scheduled for deletion. Valid value between 7 and 30 days | number | 30 | no |
+| [direct_key_info ](https: //docs.google.com/document#bookmark=id.lnxbz9)  | Information required for a &#39;direct&#39; key | object({ # List of principals to allow for cryptographic use of key. allow_access_from_principals = list(string) }) | { allow_access_from_principals: [] } | no |
+| [principal_type ](https: //docs.google.com/document#bookmark=id.35nkun2)  | Indicate which type of principal to use in direct_key_info: Must be one of the valid values allowed, Eg. AWS or Service | string | AWS | no |
+| [service_key_info ](https: //docs.google.com/document#bookmark=id.1ksv4uv)  | Information required for a &#39;service&#39; key | object({ # List of AWS service names for the kms:ViaService policy condition aws_service_names = list(string) # List of caller account IDs for the kms:CallerAccount policy condition caller_account_ids = list(string) }) | { aws_service_names: [], caller_account_ids: [] } | no |
 
 **Outputs**
 
 | **Name** | **Description** |
 | --- | --- |
-| [key\_arn ](https: //docs.google.com/document#bookmark=id.44sinio)  | ARN of the KMS key |
-| [key\_id ](https: //docs.google.com/document#bookmark=id.2jxsxqh)  | Key ID of the KMS key |
+| [key_arn ](https: //docs.google.com/document#bookmark=id.44sinio)  | ARN of the KMS key |
+| [key_id ](https: //docs.google.com/document#bookmark=id.2jxsxqh)  | Key ID of the KMS key |
