@@ -19,53 +19,54 @@ It creates:
 
 
 ### example using service key type
-```
-module kms_create {
+        ```
+        module kms_create {
 
-  source      = git@gitlab.com:https://github.com/prakash260/terraform-kms?ref=v1.0;
+        source      = git@gitlab.com:https://github.com/prakash260/terraform-kms?ref=v1.0;
 
-  key_type    = service
+        key_type    = service
 
-  description = Used to encrypt log aggregation resources
+        description = Used to encrypt log aggregation resources
 
-  alias\_name  = local.kms\_alias\_name
+        alias\_name  = local.kms\_alias\_name
 
-  custom\_tags = var.custom\_tags
+        custom\_tags = var.custom\_tags
 
-  service\_key\_info = {
+        service\_key\_info = {
 
-    aws\_service\_names  = [format(ec2.%[s.amazonaws.com
-            ](http: //s.amazonaws.com/), [data.aws\_region.current.name](http://data.aws_region.current.name/))]
+            aws\_service\_names  = [format(ec2.%[s.amazonaws.com
+                    ](http: //s.amazonaws.com/), [data.aws\_region.current.name](http://data.aws_region.current.name/))]
 
-    caller\_account\_ids = [data.aws\_caller\_identity.current.account\_id
-            ]
-        }
-    }
-```
-### example using direct key type
-
-module sns\_key {
-
-  source = git@gitlab.com:bhp-cloudfactory/aws-components/terraform-aws-kms-key.git?ref=5.0.1
-
-  alias\_name           = app-alarm-sns-key
-
-  append\_random\_suffix = true
-
-  key\_type             = direct
-
-  principal\_type       = Service
-
-  description          = Used to encrypt sns data
-
-  custom\_tags          = var.custom\_tags
-
-  direct\_key\_info = {
-
-    allow\_access\_from\_principals = [[sns.amazonaws.com
-                ](http: //sns.amazonaws.com/), [cloudwatch.amazonaws.com](http://cloudwatch.amazonaws.com/)]
+            caller\_account\_ids = [data.aws\_caller\_identity.current.account\_id
+                    ]
+                }
             }
-        }
+        ```
+### example using direct key type
+        ```
+        module sns\_key {
+
+        source = git@gitlab.com:bhp-cloudfactory/aws-components/terraform-aws-kms-key.git?ref=5.0.1
+
+        alias\_name           = app-alarm-sns-key
+
+        append\_random\_suffix = true
+
+        key\_type             = direct
+
+        principal\_type       = Service
+
+        description          = Used to encrypt sns data
+
+        custom\_tags          = var.custom\_tags
+
+        direct\_key\_info = {
+
+            allow\_access\_from\_principals = [[sns.amazonaws.com
+                        ](http: //sns.amazonaws.com/), [cloudwatch.amazonaws.com](http://cloudwatch.amazonaws.com/)]
+                    }
+                }
+        ```
 
 **Requirements**
 
