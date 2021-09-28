@@ -105,5 +105,5 @@ No modules.
 
 | **Name** | **Description** |
 | --- | --- |
-| [key_arn ](https: //docs.google.com/document#bookmark=id.44sinio)  | ARN of the KMS key |
-| [key_id ](https: //docs.google.com/document#bookmark=id.2jxsxqh)  | Key ID of the KMS key |
+| [key_arn](https: //docs.google.com/document#bookmark=id.44sinio)  | ARN of the KMS key |
+| [key_id](https: //docs.google.com/document#bookmark=id.2jxsxqh)  | Key ID of the KMS key |
