@@ -71,21 +71,16 @@ module sns\_key {
 
 | **Name** | **Version** |
 | --- | --- |
-| [terraform
-        ](https: //docs.google.com/document#bookmark=id.gjdgxs)  | \&gt;= 1.0.0 |
-| [aws
-        ](https: //docs.google.com/document#bookmark=id.30j0zll)  | \&gt;= 3.7.0 |
-| [random
-        ](https: //docs.google.com/document#bookmark=id.1fob9te)  | \&gt;= 3.0.0 |
+| [terraform](https: //docs.google.com/document#bookmark=id.gjdgxs)  |  1.0.0 |
+| [aws ](https: //docs.google.com/document#bookmark=id.30j0zll)  |  3.7.0 |
+| [random ](https: //docs.google.com/document#bookmark=id.1fob9te)  |  3.0.0 |
 
 **Providers**
 
 | **Name** | **Version** |
 | --- | --- |
-| [aws
-        ](https: //docs.google.com/document#bookmark=id.3znysh7)  | \&gt;= 3.7.0 |
-| [random
-        ](https: //docs.google.com/document#bookmark=id.2et92p0)  | \&gt;= 3.0.0 |
+| [aws ](https: //docs.google.com/document#bookmark=id.3znysh7)  |  3.7.0 |
+| [random ](https: //docs.google.com/document#bookmark=id.2et92p0)  |  3.0.0 |
 
 **Modules**
 
@@ -95,45 +90,20 @@ No modules.
 
 | **Name** | **Description** | **Type** | **Default** | **Required** |
 | --- | --- | --- | --- | --- |
-| [alias\_name
-        ](https: //docs.google.com/document#bookmark=id.3dy6vkm)  | Name for the kms key alias. A random string will be appended depending on the &#39;append\_random\_suffix&#39; variable | string | n/a | yes |
-| [description
-        ](https: //docs.google.com/document#bookmark=id.1t3h5sf)  | The description to give to the key | string | n/a | yes |
-| [key\_type
-        ](https: //docs.google.com/document#bookmark=id.4d34og8)  | Indicate which kind of key to create: &#39;service&#39; for key used by services; &#39;direct&#39; for other keys. Must provide service\_key or direct\_key maps depending on the type | string | n/a | yes |
-| [append\_random\_suffix
-        ](https: //docs.google.com/document#bookmark=id.2s8eyo1)  | Append a random string to the alias name. Default: true (yes) | bool | true | no |
-| [charge\_code
-        ](https: //docs.google.com/document#bookmark=id.17dp8vu)  | The code for applying charge code billing logic to the resources | string |  | no |
-| [custom\_tags
-        ](https: //docs.google.com/document#bookmark=id.3rdcrjn)  | Custom tags which can be passed on to the AWS resources. They should be key value pairs having distinct keys | map(any) | {} | no |
-| [deletion\_window
-        ](https: //docs.google.com/document#bookmark=id.26in1rg)  | Number of days before a key actually gets deleted once it&#39;s been scheduled for deletion. Valid value between 7 and 30 days | number | 30 | no |
-| [direct\_key\_info
-        ](https: //docs.google.com/document#bookmark=id.lnxbz9)  | Information required for a &#39;direct&#39; key | object({
-     # List of principals to allow for cryptographic use of key.
-     allow\_access\_from\_principals = list(string)
-    }) | {
-   allow\_access\_from\_principals: []
-    } | no |
-| [principal\_type
-    ](https: //docs.google.com/document#bookmark=id.35nkun2)  | Indicate which type of principal to use in direct\_key\_info: Must be one of the valid values allowed, Eg. AWS or Service | string | AWS | no |
-| [service\_key\_info
-    ](https: //docs.google.com/document#bookmark=id.1ksv4uv)  | Information required for a &#39;service&#39; key | object({
-     # List of AWS service names for the kms:ViaService policy condition
-     aws\_service\_names = list(string)
-     # List of caller account IDs for the kms:CallerAccount policy condition
-     caller\_account\_ids = list(string)
-}) | {
-   aws\_service\_names: [],
-   caller\_account\_ids: []
-} | no |
+| [alias\_name ](https: //docs.google.com/document#bookmark=id.3dy6vkm)  | Name for the kms key alias. A random string will be appended depending on the &#39;append\_random\_suffix&#39; variable | string | n/a | yes |
+| [description ](https: //docs.google.com/document#bookmark=id.1t3h5sf)  | The description to give to the key | string | n/a | yes |
+| [key\_type ](https: //docs.google.com/document#bookmark=id.4d34og8)  | Indicate which kind of key to create: &#39;service&#39; for key used by services; &#39;direct&#39; for other keys. Must provide service\_key or direct\_key maps depending on the type | string | n/a | yes |
+| [append\_random\_suffix ](https: //docs.google.com/document#bookmark=id.2s8eyo1)  | Append a random string to the alias name. Default: true (yes) | bool | true | no |
+| [charge\_code ](https: //docs.google.com/document#bookmark=id.17dp8vu)  | The code for applying charge code billing logic to the resources | string |  | no |
+| [custom\_tags ](https: //docs.google.com/document#bookmark=id.3rdcrjn)  | Custom tags which can be passed on to the AWS resources. They should be key value pairs having distinct keys | map(any) | {} | no |
+| [deletion\_window ](https: //docs.google.com/document#bookmark=id.26in1rg)  | Number of days before a key actually gets deleted once it&#39;s been scheduled for deletion. Valid value between 7 and 30 days | number | 30 | no |
+| [direct\_key\_info ](https: //docs.google.com/document#bookmark=id.lnxbz9)  | Information required for a &#39;direct&#39; key | object({ # List of principals to allow for cryptographic use of key. allow\_access\_from\_principals = list(string) }) | { allow\_access\_from\_principals: [] } | no |
+| [principal\_type ](https: //docs.google.com/document#bookmark=id.35nkun2)  | Indicate which type of principal to use in direct\_key\_info: Must be one of the valid values allowed, Eg. AWS or Service | string | AWS | no |
+| [service\_key\_info ](https: //docs.google.com/document#bookmark=id.1ksv4uv)  | Information required for a &#39;service&#39; key | object({ # List of AWS service names for the kms:ViaService policy condition aws\_service\_names = list(string) # List of caller account IDs for the kms:CallerAccount policy condition caller\_account\_ids = list(string) }) | { aws\_service\_names: [], caller\_account\_ids: [] } | no |
 
 **Outputs**
 
 | **Name** | **Description** |
 | --- | --- |
-| [key\_arn
-](https: //docs.google.com/document#bookmark=id.44sinio)  | ARN of the KMS key |
-| [key\_id
-](https: //docs.google.com/document#bookmark=id.2jxsxqh)  | Key ID of the KMS key |
+| [key\_arn ](https: //docs.google.com/document#bookmark=id.44sinio)  | ARN of the KMS key |
+| [key\_id ](https: //docs.google.com/document#bookmark=id.2jxsxqh)  | Key ID of the KMS key |
