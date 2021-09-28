@@ -71,16 +71,16 @@ module sns\_key {
 
 | **Name** | **Version** |
 | --- | --- |
-| [terraform](https: //docs.google.com/document#bookmark=id.gjdgxs)  |  1.0.0 |
-| [aws ](https: //docs.google.com/document#bookmark=id.30j0zll)  |  3.7.0 |
-| [random ](https: //docs.google.com/document#bookmark=id.1fob9te)  |  3.0.0 |
+| terraform |  1.0.0 |
+| aws |  3.7.0 |
+| random |  3.0.0 |
 
 **Providers**
 
 | **Name** | **Version** |
 | --- | --- |
-| [aws ](https: //docs.google.com/document#bookmark=id.3znysh7)  |  3.7.0 |
-| [random ](https: //docs.google.com/document#bookmark=id.2et92p0)  |  3.0.0 |
+| aws |  3.7.0 |
+| random |  3.0.0 |
 
 **Modules**
 
