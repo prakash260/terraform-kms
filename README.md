@@ -19,7 +19,7 @@ It creates:
 
 
 ### example using service key type
-        ```
+    ```
         module kms_create {
 
         source      = git@gitlab.com:https://github.com/prakash260/terraform-kms?ref=v1.0;
@@ -41,9 +41,9 @@ It creates:
                     ]
                 }
             }
-        ```
+    ```
 ### example using direct key type
-        ```
+    ```
         module sns\_key {
 
         source = git@gitlab.com:bhp-cloudfactory/aws-components/terraform-aws-kms-key.git?ref=5.0.1
@@ -66,7 +66,7 @@ It creates:
                         ](http: //sns.amazonaws.com/), [cloudwatch.amazonaws.com](http://cloudwatch.amazonaws.com/)]
                     }
                 }
-        ```
+    ```
 
 **Requirements**
 
