@@ -69,24 +69,27 @@ It creates:
 
       }
 ```
-**Requirements**
+<!--- BEGIN_TF_DOCS --->
+## Requirements
 
-| **Name** | **Version** |
-| --- | --- |
-| terraform |  1.0.0 |
-| aws |  3.7.0 |
-| random |  3.0.0 |
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.7.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.0.0 |
 
-**Providers**
+## Providers
 
-| **Name** | **Version** |
-| --- | --- |
-| aws |  3.7.0 |
-| random |  3.0.0 |
+| Name | Version |
+|------|---------|
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.7.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.0.0 |
 
-**Modules**
+## Modules
 
 No modules.
+
+<!--- END_TF_DOCS --->
 
 **Inputs**
 
