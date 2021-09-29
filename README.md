@@ -93,16 +93,16 @@ No modules.
 
 | **Name** | **Description** | **Type** | **Default** | **Required** |
 | --- | --- | --- | --- | --- |
-| alias_name | Name for the kms key alias. A random string will be appended depending on the &#39;append_random_suffix&#39; variable | string | n/a | yes |
+| alias_name | Name for the kms key alias. A random string will be appended depending on the append_random_suffix variable | string | n/a | yes |
 | description | The description to give to the key | string | n/a | yes |
-| key_type | Indicate which kind of key to create: &#39;service&#39; for key used by services; &#39;direct&#39; for other keys. Must provide service_key or direct_key maps depending on the type | string | n/a | yes |
+| key_type | Indicate which kind of key to create: service for key used by services; direct for other keys. Must provide service_key or direct_key maps depending on the type | string | n/a | yes |
 | append_random_suffix | Append a random string to the alias name. Default: true (yes) | bool | true | no |
 | charge_code | The code for applying charge code billing logic to the resources | string |  | no |
 | custom_tags | Custom tags which can be passed on to the AWS resources. They should be key value pairs having distinct keys | map(any) | {} | no |
-| deletion_window | Number of days before a key actually gets deleted once it&#39;s been scheduled for deletion. Valid value between 7 and 30 days | number | 30 | no |
-| direct_key_info | Information required for a &#39;direct&#39; key | object({ # List of principals to allow for cryptographic use of key. allow_access_from_principals = list(string) }) | { allow_access_from_principals: [] } | no |
+| deletion_window | Number of days before a key actually gets deleted once its been scheduled for deletion. Valid value between 7 and 30 days | number | 30 | no |
+| direct_key_info | Information required for a direct key | object({ # List of principals to allow for cryptographic use of key. allow_access_from_principals = list(string) }) | { allow_access_from_principals: [] } | no |
 | principal_type | Indicate which type of principal to use in direct_key_info: Must be one of the valid values allowed, Eg. AWS or Service | string | AWS | no |
-| service_key_info | Information required for a &#39;service&#39; key | object({ # List of AWS service names for the kms:ViaService policy condition aws_service_names = list(string) # List of caller account IDs for the kms:CallerAccount policy condition caller_account_ids = list(string) }) | { aws_service_names: [], caller_account_ids: [] } | no |
+| service_key_info | Information required for a service key | object({ # List of AWS service names for the kms:ViaService policy condition aws_service_names = list(string) # List of caller account IDs for the kms:CallerAccount policy condition caller_account_ids = list(string) }) | { aws_service_names: [], caller_account_ids: [] } | no |
 
 ## Outputs
 
