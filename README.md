@@ -89,9 +89,7 @@ It creates:
 
 No modules.
 
-<!--- END_TF_DOCS --->
-
-**Inputs**
+## Inputs
 
 | **Name** | **Description** | **Type** | **Default** | **Required** |
 | --- | --- | --- | --- | --- |
@@ -106,9 +104,11 @@ No modules.
 | principal_type | Indicate which type of principal to use in direct_key_info: Must be one of the valid values allowed, Eg. AWS or Service | string | AWS | no |
 | service_key_info | Information required for a &#39;service&#39; key | object({ # List of AWS service names for the kms:ViaService policy condition aws_service_names = list(string) # List of caller account IDs for the kms:CallerAccount policy condition caller_account_ids = list(string) }) | { aws_service_names: [], caller_account_ids: [] } | no |
 
-**Outputs**
+## Outputs
 
 | **Name** | **Description** |
 | --- | --- |
-| key_arn | ARN of the KMS key |
-| key_id | Key ID of the KMS key |
+| [key_arn](outputs.tf#L1) | ARN of the KMS key |
+| [key_id](outputs.tf#L6) | Key ID of the KMS key |
+
+<!--- END_TF_DOCS --->
